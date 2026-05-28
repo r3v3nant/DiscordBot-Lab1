@@ -1,4 +1,4 @@
-test_name: "Маркетингові комунікації"
+test_name: "Маркетингові комунікації - тестовий"
 time_limit: 35 # час у секундах
 questions:
   - id: 1
@@ -9,3 +9,11 @@ questions:
     question: "Що таке маркетингові комунікації?"
     options: [ "AD", "PppR", "Комплекс instruments", "None" ]
     answer: 2
+  - id: 3
+    question: "3"
+    options: [ "1", "2", "3", "4" ]
+    answer: 2
+  - id: 4
+    question: "4"
+    options: [ "1", "2", "3", "4" ]
+    answer: 3

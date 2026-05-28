@@ -142,7 +142,7 @@ async def test_timeout_timer(user_id: int, duration: int, channel: discord.TextC
                 # Редагуємо повідомлення, зберігаючи поточний embed та view
                 # Це оновлює лише рядок з часом над тестом
                 await session['message'].edit(
-                    content=f"⏰ Залишилося часу: `{time_str}`"
+                    content=f":alarm_clock: Залишилося часу: `{time_str}`"
                 )
             except discord.NotFound:
                 # Якщо користувач чомусь видалив повідомлення, зупиняємо таймер
@@ -168,7 +168,7 @@ async def test_timeout_timer(user_id: int, duration: int, channel: discord.TextC
         if 'message' in session and session['message']:
             try:
                 embed_timeout = discord.Embed(
-                    title="⏰ Час вичерпано!",
+                    title=":alarm_clock: Час вичерпано!",
                     description=f"Ваш тест завершено автоматично.\nРезультат: **{engine.stats.percent}%**",
                     color=0xe74c3c
                 )
@@ -178,7 +178,7 @@ async def test_timeout_timer(user_id: int, duration: int, channel: discord.TextC
                 pass
 
         # Резервний варіант, якщо повідомлення не вдалося відредагувати
-        embed = discord.Embed(title="⏰ Час вичерпано!",
+        embed = discord.Embed(title=":alarm_clock: Час вичерпано!",
                               description=f"Ваш тест завершено автоматично.\nРезультат: **{engine.stats.percent}%**",
                               color=0xe74c3c)
         await channel.send(content=f"<@{user_id}>", embed=embed)
@@ -190,10 +190,10 @@ async def finish_test(interaction: discord.Interaction, user_id: int):
         engine = session['engine']
         db_manager.save_result(str(user_id), session['test_id'], engine.stats.percent)
 
-        # 1. Рахуємо витрачений час у секундах 👇
+        # 1. Рахуємо витрачений час у секундах
         elapsed_seconds = int(time.time() - session['start_time'])
 
-        # 2. Форматуємо час у хвилини та секунди для красивого виводу 👇
+        # 2. Форматуємо час у хвилини та секунди для красивого виводу
         minutes = elapsed_seconds // 60
         seconds = elapsed_seconds % 60
         time_str = f"{minutes} хв. {seconds} сек." if minutes > 0 else f"{seconds} сек."
@@ -201,15 +201,15 @@ async def finish_test(interaction: discord.Interaction, user_id: int):
         score = engine.stats.percent
         if score < 50:
             embed_color = 0xe74c3c  # Червоний
-            status_emoji = "❌"
+            status_emoji = ":x:"
         elif score < 80:
             embed_color = 0xf1c40f  # Жовтий
-            status_emoji = "⚠️"
+            status_emoji = ":warning:"
         else:
             embed_color = 0x2ecc71  # Зелений
-            status_emoji = "🎉"
+            status_emoji = ":tada:"
 
-        # 3. Додаємо інформацію про час у Discord Embed 👇
+        # 3. Додаємо інформацію про час у Discord Embed
         embed = discord.Embed(
             title=f"{status_emoji} Тест завершено!",
             description=f"Вітаємо! Ви пройшли тест.\n\n"
@@ -290,18 +290,18 @@ async def on_interaction(interaction: discord.Interaction):
 
             # 1. Редагуємо повідомлення
             await interaction.response.edit_message(
-                content=f"⏰ Залишилося часу: `{mins:02d}:{secs:02d}`",
+                content=f":alarm_clock: Залишилося часу: `{mins:02d}:{secs:02d}`",
                 embed=embed,
                 view=view
             )
 
-            # 2. Отримуємо об'єкт цього повідомлення, щоб таймер міг його редагувати 👇
+            # 2. Отримуємо об'єкт цього повідомлення, щоб таймер міг його редагувати
             msg_obj = await interaction.original_response()
 
             # 3. Запуск асинхронного таймера
             timer_task = asyncio.create_task(test_timeout_timer(user_id, data['time_limit'], interaction.channel))
 
-            # 4. Фіксуємо повні дані сесії, включаючи об'єкт повідомлення 'message' 👇
+            # 4. Фіксуємо повні дані сесії, включаючи об'єкт повідомлення 'message'
             bot.active_sessions[user_id] = {
                 'engine': engine,
                 'test_id': test_id,
