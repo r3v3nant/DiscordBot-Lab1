@@ -1,0 +1,55 @@
+test_name: "Пошукова оптимізація (SEO)"
+time_limit: 900
+questions:
+  - id: 1
+    question: "Яка пошукова система, за даними Datos/SparkToro (Jan. 2024), є найбільшим джерелом реферального трафіку в мережі?"
+    options: ["Microsoft & Bing", "YouTube", "Google", "Facebook"]
+    answer: 2
+  - id: 2
+    question: "Який алгоритм Google, випущений у 2015 році, використовує машинне навчання для кращого розуміння намірів користувачів?"
+    options: ["PageRank", "RankBrain", "Hummingbird", "BERT"]
+    answer: 1
+  - id: 3
+    question: "Що є головним фокусом компонента Technical SEO відповідно до презентації?"
+    options: ["Релевантність контенту та відповідність очікуванням юзерів", "Робота з посилальним профілем сайту", "Проблеми зі скануванням, індексацією, рендерингом та швидкістю", "Присутність бренду у соціальних мережах"]
+    answer: 2
+  - id: 4
+    question: "Який інструмент On-Page SEO визначається як відношення кількості ключових слів до загальної кількості слів у тексті?"
+    options: ["Meta title and description", "Keyword density", "Internal linking", "Headers tags"]
+    answer: 1
+  - id: 5
+    question: "Який метод побудови посилань (Linkbuilding) передбачає отримання лінків з форумів, каталогів та Q&A платформ?"
+    options: ["Guest posts", "PBN", "Social Signals", "Crowd-marketing"]
+    answer: 3
+  - id: 6
+    question: "Який код відповіді сервера використовується як постійний редирект і передає вагу сторінки (Page Rank)?"
+    options: ["301", "404", "410", "500"]
+    answer: 0
+  - id: 7
+    question: "Яка з наведених помилок у файлі robots.txt є найбільш критичною?"
+    options: ["Використання директиви Allow для зображень", "Одночасне використання всіх методів закриття від сканування та індексації", "Вказання посилання на sitemap.xml на початку файлу", "Заборона індексації папки адмінпанелі"]
+    answer: 1
+  - id: 8
+    question: "Який показник Core Web Vitals відповідає за візуальну стабільність сторінки (Visual Stability)?"
+    options: ["LCP (Largest Contentful Paint)", "INP (Interaction to Next Paint)", "CLS (Cumulative Layout Shift)", "TTFB (Time to First Byte)"]
+    answer: 2
+  - id: 9
+    question: "Для якого типу сайтів найкраще обирати тип рендерингу Server-Side Rendering (SSR)?"
+    options: ["Особисті кабінети та дашборди без потреби в SEO", "Лендінги зі статичним контентом", "Сайти з високою потребою в SEO, де контент часто оновлюється (блоги, маркетплейси)", "Односторінкові SPA-додатки з базовим SEO"]
+    answer: 2
+  - id: 10
+    question: "У якому стандартизованому форматі надається інформація про структуровані дані?"
+    options: ["JSON-LD", "XML text", "HTML basic code", "YAML config"]
+    answer: 0
+  - id: 11
+    question: "Яка з наведених ситуацій є прикладом типової SEO помилки?"
+    options: ["Наявність адаптивної версії сайту", "Дзеркала сайту (www та non-www) не склеєні", "Використання атрибутів alt для зображень", "Оптимізація контенту під голосовий пошук"]
+    answer: 1
+  - id: 12
+    question: "Що означає фактор 'A' в абревіатурі принципів якості контенту Google E-E-A-T?"
+    options: ["Accessibility (Доступність)", "Analytics (Аналітика)", "Algorithms (Алгоритми)", "Authoritativeness (Авторитетність)"]
+    answer: 3
+  - id: 13
+    question: "Який феномен описує ситуацію, коли 60% пошуків у Google не закінчуються переходом на сайт, бо юзери бачать Direct Answers або Snippets?"
+    options: ["Zero-click search", "Mobile-first indexing", "Faceted Navigation", "Log File Analysis"]
+    answer: 0
